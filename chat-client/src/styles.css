@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --task-create-border: #8e5e9fff;
+    --error-color: #b00a0aff;
+    --error-background: #f1e4e4;
+}

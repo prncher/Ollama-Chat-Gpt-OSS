@@ -1,0 +1,97 @@
+.top {
+    border: 2px solid #123;
+    height: 400px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.chatInput {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0%;
+    gap: 5px;
+}
+
+@keyframes busy {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.chatInputOverlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 510px;
+    height: 40px;
+    background-color: rgba(233, 225, 225, 0.7);
+    z-index: 1000;
+}
+
+.spinner {
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    border: 5px solid #15bb47;
+    border-top: 5px solid #04461a;
+    border-radius: 50%;
+    animation: busy 1s linear infinite;
+}
+
+
+input[type="button" i] {
+    appearance: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    text-align: center;
+    line-height: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: rgb(64, 126, 83);
+    color: #000;
+    white-space: pre;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border: none;
+    height: 40px;
+    width: 100px;
+}
+
+input[type="button" i]:disabled {
+    background-color: #888;
+    color: #333;
+    cursor: none;
+}
+
+input[type="text" i] {
+    height: 35px;
+    min-width: 400px;
+    color: blue;
+    border: 1px ridge #cdd;
+}
+
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    height: 350px;
+    gap: 2px;
+    overflow: auto;
+}
+
+.receivedMessage {
+    width: 100%;
+    white-space: pre-line
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background: #123;
+    margin-block: 0.1rem;
+}

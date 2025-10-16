@@ -1,0 +1,140 @@
+<style>
+  :host {
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(70.9% 0.015 304.04);
+
+    --divider-gradient: linear-gradient(90deg,
+        var(--gray-400) 0%,
+        var(--gray-900) 50%,
+        var(--gray-700) 100%);
+
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    color: var(--gray-900);
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+  }
+
+  p {
+    margin: 0;
+    color: var(--gray-700);
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  .angular-logo {
+    max-width: 9.2rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+
+  h4 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
+
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    background: var(--divider-gradient);
+    margin-block: 0.1rem;
+  }
+
+  input[type="button" i] {
+    appearance: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    text-align: center;
+    line-height: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: rgb(64, 126, 83);
+    color: #000;
+    white-space: pre;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border: none;
+    height: 40px;
+    width: 100px;
+  }
+
+  input[type="button" i]:disabled {
+    background-color: #888;
+    color: #333;
+    cursor: none;
+  }
+
+
+  @media screen and (max-width: 650px) {
+    .content {
+      flex-direction: column;
+      width: max-content;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: var(--divider-gradient);
+      margin-block: 0.1rem;
+    }
+  }
+</style>
+
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <h2>{{ chatService.getTitle() }} <input type='button' value="Add Chat" (click)="chatService.addChat()"
+          [disabled]="chatService.canAddChat()" /></h2>
+      <h4>Maximum 3 chats allowed</h4>
+    </div>
+    <div class="divider" aria-label="Divider"></div>
+    @for (chatId of chatService.chats; track chatId) {
+      <Chat [id]=chatId />
+    }
+  </div>
+</main>
+
+<router-outlet />

@@ -1,0 +1,15 @@
+<div class="top">
+    <div class="chatInput">
+        <input type="text" [(ngModel)]="chatMessage" placeholder="Enter query" id="chat-message" />
+        <input type='button' value="Send" (click)="sendChatMessage()"
+            [disabled]="!chatMessage || chatMessage.length === 0" />
+        <div class="chatInputOverlay" [style.display]="showOverlay ? 'block' : 'none'">
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <div class='messageContainer'>
+        @for (message of messages; track message.id) {
+        <div markdown="1" class='receivedMessage' [innerHTML]="message.message"></div>
+        }
+    </div>
+</div>
