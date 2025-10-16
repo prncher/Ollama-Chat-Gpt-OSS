@@ -11,6 +11,6 @@ import { Chat } from './chat/chat';
 })
 export class App {
   chatService = inject(ChatService)
-  protected readonly title = signal('chat-client-angular');
+  protected readonly title = signal('chat-client');
 }
 

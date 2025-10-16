@@ -1,12 +1,13 @@
 {
-  "name": "chat-client-angular",
+  "name": "chat-client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --base-href=/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "launch": "http-server dist/chat-client/browser -p 3000"
   },
   "prettier": {
     "printWidth": 100,
